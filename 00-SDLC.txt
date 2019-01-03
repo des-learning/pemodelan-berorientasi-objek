@@ -1,0 +1,30 @@
+Software Development Lifecycle
+1. Planning
+	What
+	Who
+	When
+2. Analysis
+	Current condition
+	Goals
+	How
+3. Design
+	Business rules
+	Process
+	UML
+4. Implementation
+	Coding
+	Testing
+	Documentation
+5. Maintainence
+	Fixing bugs
+	Repeat
+
+Why Object Oriented Modeling?
+	- Communication
+	- Abstraction
+
+Why Object Oriented?
+	Most (business) problem can be visualize as interaction of objects
+
+How?
+	Using Unified Modeling Language (UML) by Object Management Group
