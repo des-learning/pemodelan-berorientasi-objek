@@ -1,0 +1,31 @@
+Create Todo
+
+Normal path:
+	User					System
+1.	menekan tombol new todo
+2.						menampilkan form input new todo
+3.	mengisi data pada form new todo
+4.	menekan tombol simpan/save
+5.						menvalidasi data new todo yang diinput user
+6.						menyimpan data todo ke database
+7.						menampilkan pesan bahwa todo telah disimpan
+8.						tampilkan halaman list todo
+selesai
+
+Alternative paths:
+User menekan tombol cancel pada normal path langkah 4.
+4.	menekan tombol batal/cancel
+5.						menampilkan halaman list todo
+selesai
+
+Data yang diinput user salah pada normal path langkah 5.
+6.						menampilkan kembali form new todo dengan pesan
+						kesalahan yang dibuat oleh user
+7.	lanjutkan normal path dari langkah 3.
+selesai
+
+Penyimpanan data todo error, pada normal path langkah 6
+7.						menampilkan pesan bahwa terjadi error pada saat
+						penyimpanan data todo
+8. lanjutkan normal path dari langkah 3.
+selesai 

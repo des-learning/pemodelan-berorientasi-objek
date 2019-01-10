@@ -1,0 +1,30 @@
+form new todo
+database
+pesan kesalahan/error
+
+
+todo
+- tanggal: date
+- waktu: time
+- description: string
+- state(in progress, finish): enumerate state
+---
+get set
+new(): todo
+validate(): boolean
+	menvalidasi apakah data todo benar atau tidak
+	jika valid return true jika tidak return false
+	todo valid:
+		tanggal & waktu terisi
+		descritpion tidak boleh kosong
+		state nilai antara in progress atau finish
+
+database
+- connectionstring: string
+---
+insert(todo: todo): boolean
+
+Message
+- pesan: string
+----
++ tampil()
