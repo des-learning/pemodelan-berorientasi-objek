@@ -2,6 +2,8 @@
 
 namespace ToDo
 {
+    public enum StatusType { draft, inprogress, done}
+
     // Menampung data ToDo
     public class ToDo {
         // menyimpan waktu todo
@@ -13,12 +15,12 @@ namespace ToDo
         // draft -> todo masih berupa catatan belum dikerjakan
         // inprogress -> todo sedang dikerjakan
         // done -> todo telah selesai dikerjakan
-        public string status { get; set; }
+        public StatusType status { get; set; }
 
         private ToDo() {
             this.waktu = DateTime.Now;
             this.keterangan = "";
-            this.status = "draft"; // draft, inprogress, done
+            this.status = StatusType.draft; // draft, inprogress, done
         }
 
         // factory method
@@ -31,10 +33,7 @@ namespace ToDo
         // - status isinya draft/inprogress/done
         // - keterangan tidak kosong
         private Boolean validate() {
-            var validStatus = new string[]{"draft", "inprogress", "done"};
-
-            return this.waktu != null && this.keterangan != "" && 
-                Array.Exists(validStatus, (string e) => e == this.status);
+            return this.waktu != null && this.keterangan != "";
         }
 
         public static Boolean save(ToDo todo) {
