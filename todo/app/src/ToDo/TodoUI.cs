@@ -1,10 +1,9 @@
 using System;
+using System.Collections.Generic;
 
 namespace ToDo {
     class ToDoUI {
-        static void menu() {
-            string []menus = {"List Todo", "New Todo", "Update Todo", "Delete Todo", "End"};
-
+        static void displayMenu(string []menus) {
             Console.WriteLine("Menu");
             Console.WriteLine("====");
             Console.WriteLine();
@@ -34,30 +33,32 @@ namespace ToDo {
             Console.WriteLine($"Simpan: {hasil}");
         }
 
+        static void ListTodo() {
+            Console.WriteLine("List Todo");
+        }
+
         static void Main(string []args) {
-            menu();
-            string command = getUserChoice();
-            switch(command) {
-                case "new":
-                    // panggil untuk input new todo
-                    NewTodoForm();
-                    break;
-                case "list":
-                    Console.WriteLine("list");
-                    break;
-                case "update":
-                    Console.WriteLine("update");
-                    break;
-                case "delete":
-                    Console.WriteLine("delete");
-                    break;
-                case "end":
-                    Console.WriteLine("stop");
-                    break;
-                default:
-                    Console.WriteLine("Salah command");
-                    break;
-            }
+            Boolean exit = false;
+            string []menus = {"New Todo", "List Todo", "Update Todo",
+                              "Delete Todo", "End Application"};
+            // Action -> type data C# untuk refer ke fuction tanpa parameter dan return type
+            // Action<int> -> terima 1 parameter integer return void
+            // Func<int, string> -> terima 1 parameter int, return string
+            Dictionary<string, Action> commands = new Dictionary<string, Action>{
+                {"new", NewTodoForm},
+                {"list", ListTodo},
+                {"update", () => Console.WriteLine("update")},
+                {"delete", () => Console.WriteLine("delete")},
+                {"end", () => exit = true}
+            };
+            Action otherCommand = () => Console.WriteLine("Command salah");
+
+            do {
+                displayMenu(menus);
+                string command = getUserChoice();
+                var action = commands.GetValueOrDefault(command, otherCommand);
+                action();
+            } while (!exit);
         }
     }
 }
