@@ -1,7 +1,6 @@
-﻿using System;
+using System;
 
-namespace ToDo
-{
+namespace ToDo {
     public enum StatusType { draft, inprogress, done}
 
     // Menampung data ToDo
@@ -17,33 +16,18 @@ namespace ToDo
         // done -> todo telah selesai dikerjakan
         public StatusType status { get; set; }
 
-        private ToDo() {
+        public ToDo() {
             this.waktu = DateTime.Now;
             this.keterangan = "";
             this.status = StatusType.draft; // draft, inprogress, done
         }
 
-        // factory method
-        public static ToDo BlankTodo() {
-            return new ToDo();
+        public ToDo(DateTime waktu, string keterangan, StatusType status) {
+            this.waktu = waktu;
+            this.keterangan = keterangan;
+            this.status = status;
         }
 
-        // validate menvalidasi todo, todo yang valid adalah
-        // - waktu tidak null
-        // - status isinya draft/inprogress/done
-        // - keterangan tidak kosong
-        private Boolean validate() {
-            return this.waktu != null && this.keterangan != "";
-        }
-
-        public static Boolean save(ToDo todo) {
-            Boolean valid = todo.validate();
-            if (valid) {
-                // TODO: implementasi simpan todo ke database
-                // db.insert(todo)
-            }
-
-            return valid;
-        }
     }
+
 }

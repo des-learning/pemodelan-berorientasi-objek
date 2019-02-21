@@ -18,7 +18,7 @@ namespace ToDo {
         }
 
         static void NewTodoForm() {
-            ToDo todo = ToDo.BlankTodo();
+            ToDo todo = ToDoService.BlankTodo();
 
             Console.WriteLine("New Todo");
             Console.Write("Input tanggal dan waktu (yyyy-mm-dd hh:mm), kosongkan untuk waktu sekarang: ");
@@ -29,7 +29,7 @@ namespace ToDo {
             Console.Write("Keterangan: ");
             todo.keterangan = Console.ReadLine();
 
-            string hasil = ToDo.save(todo) ? "berhasil" : "gagal";
+            string hasil = ToDoService.save(todo) ? "berhasil" : "gagal";
             Console.WriteLine($"Simpan: {hasil}");
         }
 
