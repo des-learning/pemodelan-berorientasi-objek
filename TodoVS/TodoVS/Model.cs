@@ -10,6 +10,8 @@ namespace TodoVS
 
     // Menampung data ToDo
     public class ToDo {
+        // menyimpan primary key
+        public int id { get; set; }
         // menyimpan waktu todo
         public DateTime waktu { get; set; }
         // menyimpan keterangan todo
@@ -22,12 +24,14 @@ namespace TodoVS
         public StatusType status { get; set; }
 
         public ToDo() {
+            this.id = 0;
             this.waktu = DateTime.Now;
             this.keterangan = "";
             this.status = StatusType.draft; // draft, inprogress, done
         }
 
-        public ToDo(DateTime waktu, string keterangan, StatusType status) {
+        public ToDo(int id, DateTime waktu, string keterangan, StatusType status) {
+            this.id = id;
             this.waktu = waktu;
             this.keterangan = keterangan;
             this.status = status;

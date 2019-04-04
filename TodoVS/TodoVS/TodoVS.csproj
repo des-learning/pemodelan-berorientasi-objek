@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ListRepository.cs" />
     <Compile Include="Maybe.cs" />
     <Compile Include="Model.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="TodoUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
